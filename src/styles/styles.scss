@@ -1,8 +1,21 @@
-// Color variables
+/*
+ * Color variables
+ */
 $main-bg: #f9f9f9;
 $nav-bg: #303030;
 
 $beige: #cfb995;
 $white: #ffffff;
+
+// Category colors
+$red: #ff5b5b;
+$pastel-orange: #ff915b;
+$pale-orange: #ffbe5b;
+$light-gold: #ffdf5b;
+$kiwi-green: #8fe360;
+$weird-green: #57e690;
+$cyan: #57dbe6;
+$category-colors: $red, $pastel-orange, $pale-orange, $light-gold, $kiwi-green,
+  $weird-green, $cyan;
 
 $light-text-color: #5e5e5e;

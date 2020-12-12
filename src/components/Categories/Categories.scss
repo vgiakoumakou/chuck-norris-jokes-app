@@ -1,0 +1,80 @@
+@import "../../styles/styles.scss";
+
+// Set the number of colors
+$colors-length: length($category-colors);
+
+.Categories {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 1140px;
+}
+
+.Categories__Category {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-basis: calc(
+    20% - 20px
+  ); //5 items per row (20% for each item minus the margin-right)
+  max-width: 180px;
+  padding: 14px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.43;
+  text-transform: uppercase;
+  color: $white;
+  margin-bottom: 16px;
+  cursor: pointer;
+
+  // Do not apply margin-right to the last item of each row
+  &:not(:nth-child(5n)) {
+    margin-right: 20px;
+  }
+
+  // Set the color of each joke category
+  @for $i from 1 through $colors-length {
+    &:nth-of-type(#{$colors-length}n + #{$i}) {
+      background-color: nth($category-colors, $i);
+    }
+  }
+
+  &.Categories__ViewAll {
+    background-color: transparent;
+    background: url("../../assets/icons/down-arrow-beige-icon.svg") no-repeat;
+    background-position: right 16px center;
+    background-size: 11px 16px;
+    color: $beige;
+    border: 1px solid #d1bb91;
+  }
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .Categories {
+    justify-content: center;
+  }
+
+  .Categories__Category {
+    flex-basis: calc(25% - 20px);
+
+    &:not(:nth-child(4n)) {
+      margin-right: 20px;
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .Categories {
+    .Categories__Category {
+      flex-basis: calc(35%);
+      margin-right: 10px;
+    }
+  }
+}
