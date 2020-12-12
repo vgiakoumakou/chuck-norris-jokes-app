@@ -1,0 +1,108 @@
+@import "../../styles/styles.scss";
+
+.NavBar {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background-color: $nav-bg;
+  color: $white;
+}
+
+.NavBar__Inner {
+  display: flex;
+  justify-content: space-between;
+  flex: 0 0 100%;
+  max-width: 1140px;
+}
+
+.NavBar__Nav {
+  display: flex;
+  flex-direction: row;
+}
+
+.NavBar__NavItem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &.NavBar__NavItem--HasSubMenu {
+    background-color: $beige;
+    position: relative;
+  }
+}
+
+.NavBar__Link {
+  font-size: 15px;
+  padding: 20px 16px;
+}
+
+.NavBar__Link--with-icons {
+  &::before {
+    content: "";
+    display: block;
+    background: url("../../assets/icons/user-icon.svg") no-repeat;
+    float: left;
+    width: 16px;
+    height: 16px;
+    margin: 2px 8px 1px 0;
+  }
+
+  &::after {
+    content: "";
+    display: block;
+    background: url("../../assets/icons/down-arrow-icon.svg") no-repeat;
+    float: right;
+    width: 16px;
+    height: 8px;
+    margin: 6px 0 5px 34px;
+  }
+}
+
+.NavBar__SubLinks {
+  display: flex;
+  flex-direction: column;
+  padding: 8px;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 0%;
+  background-color: $white;
+  border-radius: 4px;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    right: 15%;
+    border-width: 7px;
+    border-style: solid;
+    border-color: transparent transparent $white transparent;
+  }
+
+  .NavBar__SubLink {
+    padding: 8px;
+    font-size: 14px;
+    color: $light-text-color;
+    width: 190px;
+
+    &:not(:last-child) {
+      border-bottom: 1px solid #d1d1d1;
+    }
+
+    &:last-child {
+      color: $beige;
+      font-weight: bold;
+    }
+  }
+}
+
+.NavBar__MobileMenuIcon {
+  width: 40px;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 768px) {
+  .NavBar {
+    padding: 10px 20px;
+  }
+}

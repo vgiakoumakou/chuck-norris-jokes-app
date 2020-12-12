@@ -1,7 +1,8 @@
 import "./App.scss";
+import NavBar from "./components/NavBar";
 
 function App() {
-  return <div className="App">Chuck Norris Jokes App</div>;
+  return <NavBar />;
 }
 
 export default App;
