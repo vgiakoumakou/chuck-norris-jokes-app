@@ -1,0 +1,71 @@
+@import "../../styles/styles.scss";
+
+$input-placeholder-color: #b2b2b2;
+$input-value-color: #303030;
+
+.SearchBar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  width: 100%;
+  height: 320px;
+  background-image: url("../../assets/images/search-bar-bg.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.SearchBar__Title {
+  color: $beige;
+  font-size: 48px;
+  height: 72px;
+}
+
+.SearchBar__SubTitle {
+  color: $white;
+  font-size: 22px;
+  font-weight: 600;
+  height: 32px;
+  margin-bottom: 45px;
+}
+
+.SearchBar__Input {
+  padding: 14px 16px;
+  background-color: transparent;
+  border: 1px solid $white;
+  border-radius: 4px;
+  background: url("../../assets/icons/search-icon-light.svg") no-repeat;
+  background-position: right 16px center;
+  background-size: 24px;
+  padding-right: 24px;
+  font-size: 15px;
+  width: 458px;
+  max-width: 80%;
+  outline: none;
+
+  &::placeholder {
+    color: $input-placeholder-color;
+  }
+
+  &:focus,
+  &:not(:placeholder-shown) {
+    background: url("../../assets/icons/search-icon-dark.svg") no-repeat;
+    background-position: right 16px center;
+    background-size: 24px;
+    background-color: $white;
+    color: $input-value-color;
+    padding-right: 24px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .SearchBar__Title {
+    font-size: 38px;
+  }
+
+  .SearchBar__SubTitle {
+    font-size: 18px;
+  }
+}
