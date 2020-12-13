@@ -4,10 +4,11 @@ import "./SelectedCategory.scss";
 
 function SelectedCategory(props) {
   // Destruct props
-  const { selectedCategory, onDeselectCategory } = props;
+  const { selectedCategory, isLoading, onDeselectCategory } = props;
 
   //Return nothing when there is no category selected
-  if (selectedCategory.length === 0) {
+  // or the app is loading the jokes
+  if (selectedCategory.length === 0 || isLoading) {
     return null;
   }
 

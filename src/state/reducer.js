@@ -13,6 +13,8 @@ const initialState = {
   isLoadingJokes: false,
   // The selected joke category
   selectedCategory: "",
+  // The id of the selected joke
+  selectedJokeId: null,
 };
 
 function rootReducer(state = initialState, action) {
@@ -60,6 +62,11 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
         selectedCategory: "",
+      };
+    case Types.SELECT_JOKE:
+      return {
+        ...state,
+        selectedJokeId: action.id,
       };
     default:
       return state;

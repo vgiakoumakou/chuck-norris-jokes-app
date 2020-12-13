@@ -98,3 +98,13 @@ export const deselectCategory = () => {
     type: Types.DESELECT_CATEGORY,
   };
 };
+
+/**
+ * Select a specific joke to open
+ */
+export const selectJoke = (id) => {
+  return {
+    type: Types.SELECT_JOKE,
+    id
+  };
+};

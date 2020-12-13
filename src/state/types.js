@@ -21,3 +21,8 @@ export const SELECT_CATEGORY = "SELECT_CATEGORY";
  * Deselect Category
  */
 export const DESELECT_CATEGORY = "DESELECT_CATEGORY";
+
+/**
+ * Select Joke
+ */
+export const SELECT_JOKE = "SELECT_JOKE";

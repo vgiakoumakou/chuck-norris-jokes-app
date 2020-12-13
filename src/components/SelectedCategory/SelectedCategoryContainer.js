@@ -7,6 +7,7 @@ import { deselectCategory } from "../../state/actions";
 const mapStateToProps = (state) => {
   return {
     selectedCategory: state.selectedCategory,
+    isLoading: state.isLoadingJokes,
   };
 };
 

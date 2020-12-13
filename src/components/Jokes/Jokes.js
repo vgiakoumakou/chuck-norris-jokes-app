@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import { withRouter } from "react-router-dom";
+
 import Loader from "../SharedUIElements/Loader";
 import ViewMoreButton from "../SharedUIElements/ViewMoreButton";
 
@@ -9,7 +11,7 @@ import "./Jokes.scss";
 
 function Jokes(props) {
   // Destruct props
-  const { jokes, isLoading, onFetchJokes } = props;
+  const { jokes, isLoading, onFetchJokes, onSelectJoke, history } = props;
   // Initialize state
   const [displayedJokes, setDisplayedJokes] = useState([]);
   // Set the amount of jokes to be added when the View More button is clicked
@@ -45,7 +47,7 @@ function Jokes(props) {
 
   const renderJokeCard = (joke) => {
     return (
-      <div className="Jokes__JokeCard">
+      <div className="Jokes__JokeCard" key={joke.id}>
         <div>
           <h6 className="Jokes__JokeCardTitle">
             <img
@@ -57,7 +59,15 @@ function Jokes(props) {
           </h6>
           <p className="Jokes__JokeCardValue">{joke.value}</p>
         </div>
-        <div className="Jokes__JokeCardLink">
+        <div
+          className="Jokes__JokeCardLink"
+          onClick={() => {
+            // Update the selected joke in the store
+            onSelectJoke(joke.id);
+            // Redirect to the joke's page
+            history.push(`/${joke.id}`);
+          }}
+        >
           <span className="Jokes__JokeCardLink__Text">SEE STATS</span>
           <img src={arrowIcon} alt="Arrow Right" />
         </div>
@@ -82,4 +92,4 @@ function Jokes(props) {
   );
 }
 
-export default Jokes;
+export default withRouter(Jokes);
