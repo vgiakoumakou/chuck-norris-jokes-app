@@ -16,3 +16,8 @@ export const ASYNC_FETCH_JOKES_ERROR = "ASYNC_FETCH_JOKES_ERROR";
  * Select Category
  */
 export const SELECT_CATEGORY = "SELECT_CATEGORY";
+
+/**
+ * Deselect Category
+ */
+export const DESELECT_CATEGORY = "DESELECT_CATEGORY";

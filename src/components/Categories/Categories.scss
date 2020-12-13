@@ -11,6 +11,8 @@ $colors-length: length($category-colors);
   flex-wrap: wrap;
   width: 100%;
   max-width: 1140px;
+  padding-bottom: 25px;
+  border-bottom: 1px solid $white-two;
 }
 
 .Categories__Category {

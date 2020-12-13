@@ -56,6 +56,11 @@ function rootReducer(state = initialState, action) {
         ...state,
         selectedCategory: action.selectedCategory,
       };
+    case Types.DESELECT_CATEGORY:
+      return {
+        ...state,
+        selectedCategory: "",
+      };
     default:
       return state;
   }

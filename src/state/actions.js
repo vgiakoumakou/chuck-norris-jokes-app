@@ -89,3 +89,12 @@ export const selectCategory = (name) => {
     selectedCategory: name,
   };
 };
+
+/**
+ * Deselect Category
+ */
+export const deselectCategory = () => {
+  return {
+    type: Types.DESELECT_CATEGORY,
+  };
+};
