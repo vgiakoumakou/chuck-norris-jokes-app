@@ -1,0 +1,84 @@
+@import "../../styles/styles.scss";
+
+.Jokes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  width: 100%;
+  max-width: 1140px;
+}
+
+.Jokes__JokeCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 264px;
+  padding: 16px;
+  background-color: $white;
+  color: $nav-bg;
+  border-radius: 2px;
+  border: 1px solid $white-two;
+  flex: 0 0 calc(33.33% - 15px); //3 items per row (33% minus the margin)
+  margin-right: 15px;
+  box-sizing: border-box;
+  margin-bottom: 38px;
+
+  &:nth-child(3n) {
+    margin-right: 0px;
+    flex: 0 0 33.33%;
+  }
+
+  &:hover {
+    box-shadow: 0 1px 7px 0 rgba(0, 0, 0, 0.15);
+  }
+}
+
+.Jokes__JokeCardTitle {
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.Jokes__JokeCardIcon {
+  width: 8px;
+  height: 14px;
+  margin-right: 8px;
+}
+
+.Jokes__JokeCardLink {
+  text-align: end;
+  color: $beige;
+  font-size: 14px;
+  font-weight: 600;
+  height: 20px;
+  cursor: pointer;
+}
+
+.Jokes__JokeCardLink__Text {
+  padding-right: 8px;
+}
+
+@media only screen and (max-width: 768px) {
+  .Jokes__JokeCard {
+    &:not(:nth-child(2n)) {
+      flex: 0 0 calc(50% - 10px); //2 items per row
+      margin-right: 10px;
+    }
+
+    &:nth-child(2n) {
+      flex: 0 0 50%;
+      margin-right: 0px;
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .Jokes__JokeCard {
+    &:not(:nth-child(2n)),
+    &:nth-child(2n) {
+      flex: 0 0 calc(100% - 20px); //1 item per row
+      margin-right: 10px;
+      margin-left: 10px;
+    }
+  }
+}

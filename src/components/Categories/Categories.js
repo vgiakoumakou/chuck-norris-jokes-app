@@ -3,34 +3,23 @@ import Loader from "../SharedUIElements/Loader";
 
 import "./Categories.scss";
 
-function Categories() {
+function Categories(props) {
+  // Destructuring props
+  const { categories, isLoading, onFetchCategories } = props;
   // Initialize state
-  const [categories, setCategories] = useState([]);
-  const [loading, setLoading] = useState(true);
   const [isViewAllSelected, setIsViewAllSelected] = useState(false);
+
+  useEffect(() => {
+    onFetchCategories();
+  }, []);
 
   // When 'View All' is not clicked yet, display the first 7 categories
   const displayedCategories = isViewAllSelected
     ? categories
     : categories.slice(0, 7);
 
-  useEffect(() => {
-    async function fetchData() {
-      // Fetch the joke categories from the API
-      const response = await fetch(
-        "https://api.chucknorris.io/jokes/categories"
-      );
-      const data = await response.json();
-      // Update state
-      setCategories(data);
-      setLoading(false);
-    }
-
-    fetchData();
-  }, []);
-
   // Show loader, while categories are being fetched
-  if (loading) {
+  if (isLoading) {
     return <Loader />;
   }
 

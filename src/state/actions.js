@@ -1,0 +1,81 @@
+import * as Types from "./types";
+
+// const API_BASE_URL ="https://api.chucknorris.io/jokes";
+
+/**
+ * Fetch joke categories from the API
+ */
+export const asyncFetchCategoriesRequest = () => {
+  return {
+    type: Types.ASYNC_FETCH_CATEGORIES_REQUEST,
+  };
+};
+
+export const asyncFetchCategoriesSuccess = (categories) => {
+  return {
+    type: Types.ASYNC_FETCH_CATEGORIES_SUCCESS,
+    categories,
+  };
+};
+
+export const asyncFetchCategoriesError = (error) => {
+  return {
+    type: Types.ASYNC_FETCH_CATEGORIES_ERROR,
+    error,
+  };
+};
+
+export const asyncFetchCategories = () => {
+  return async (dispatch) => {
+    dispatch(asyncFetchCategoriesRequest());
+
+    return await fetch("https://api.chucknorris.io/jokes/categories")
+      .then((response) => response.json())
+      .then(
+        (data) => dispatch(asyncFetchCategoriesSuccess(data)),
+        (err) => {
+          alert(err);
+          dispatch(asyncFetchCategoriesError(err));
+        }
+      );
+  };
+};
+
+/**
+ * Fetch jokes from the API
+ */
+export const asyncFetchJokesRequest = () => {
+  return {
+    type: Types.ASYNC_FETCH_JOKES_REQUEST,
+  };
+};
+
+export const asyncFetchJokesSuccess = (jokes) => {
+  return {
+    type: Types.ASYNC_FETCH_JOKES_SUCCESS,
+    jokes,
+  };
+};
+
+export const asyncFetchJokesError = (error) => {
+  return {
+    type: Types.ASYNC_FETCH_JOKES_ERROR,
+    error,
+  };
+};
+
+export const asyncFetchJokes = () => {
+  return async (dispatch) => {
+    dispatch(asyncFetchJokesRequest());
+
+    return await fetch("https://api.chucknorris.io/jokes/search?query=hello")
+      .then((response) => response.json())
+      .then(
+        (data) => dispatch(asyncFetchJokesSuccess(data.result)),
+        (err) => {
+          alert(err);
+          dispatch(asyncFetchJokesError(err));
+        }
+      );
+  };
+};
