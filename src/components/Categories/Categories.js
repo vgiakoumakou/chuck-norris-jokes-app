@@ -1,15 +1,21 @@
 import React, { useState, useEffect } from "react";
-import Loader from "../SharedUIElements/Loader";
 
 import "./Categories.scss";
 
 function Categories(props) {
-  // Destructuring props
-  const { categories, isLoading, onFetchCategories } = props;
+  // Destruct props
+  const {
+    categories,
+    isLoading,
+    isLoadingJokes,
+    onFetchCategories,
+    onSelectCategory,
+  } = props;
   // Initialize state
   const [isViewAllSelected, setIsViewAllSelected] = useState(false);
 
   useEffect(() => {
+    // Fetch categories from the API
     onFetchCategories();
   }, []);
 
@@ -19,14 +25,20 @@ function Categories(props) {
     : categories.slice(0, 7);
 
   // Show loader, while categories are being fetched
-  if (isLoading) {
-    return <Loader />;
+  if (isLoading || isLoadingJokes) {
+    return null;
   }
 
   // Returns a category element
   const renderCategory = (name) => {
     return (
-      <div key={name} className="Categories__Category" onClick={() => {}}>
+      <div
+        key={name}
+        className="Categories__Category"
+        onClick={() => {
+          onSelectCategory(name);
+        }}
+      >
         {name}
       </div>
     );

@@ -1,12 +1,16 @@
 import * as Types from "./types";
 
+import { normalizeJokes } from "./normalizers";
+
 const initialState = {
   // The joke categories
   categories: [],
   // The jokes
   jokes: [],
-  // True if the app is loading while fetching data from the API
-  isLoading: false,
+  // True while the app is fetching joke categories from the API
+  isLoadingCategories: false,
+  // True while the app is fetching jokes from the API
+  isLoadingJokes: false,
   // The selected joke category
   selectedCategory: "",
 };
@@ -16,36 +20,41 @@ function rootReducer(state = initialState, action) {
     case Types.ASYNC_FETCH_CATEGORIES_REQUEST:
       return {
         ...state,
-        isLoading: true,
+        isLoadingCategories: true,
       };
     case Types.ASYNC_FETCH_CATEGORIES_SUCCESS:
       return {
         ...state,
         categories: action.categories,
-        isLoading: false,
+        isLoadingCategories: false,
       };
     case Types.ASYNC_FETCH_CATEGORIES_ERROR:
       return {
         ...state,
         error: action.error,
-        isLoading: false,
+        isLoadingCategories: false,
       };
     case Types.ASYNC_FETCH_JOKES_REQUEST:
       return {
         ...state,
-        isLoading: true,
+        isLoadingJokes: true,
       };
     case Types.ASYNC_FETCH_JOKES_SUCCESS:
       return {
         ...state,
-        jokes: action.jokes,
-        isLoading: false,
+        jokes: normalizeJokes(action.jokes),
+        isLoadingJokes: false,
       };
     case Types.ASYNC_FETCH_JOKES_ERROR:
       return {
         ...state,
         error: action.error,
-        isLoading: false,
+        isLoadingJokes: false,
+      };
+    case Types.SELECT_CATEGORY:
+      return {
+        ...state,
+        selectedCategory: action.selectedCategory,
       };
     default:
       return state;

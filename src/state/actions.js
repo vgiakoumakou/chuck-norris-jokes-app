@@ -1,6 +1,6 @@
 import * as Types from "./types";
 
-// const API_BASE_URL ="https://api.chucknorris.io/jokes";
+const API_BASE_URL = "https://api.chucknorris.io/jokes";
 
 /**
  * Fetch joke categories from the API
@@ -29,7 +29,7 @@ export const asyncFetchCategories = () => {
   return async (dispatch) => {
     dispatch(asyncFetchCategoriesRequest());
 
-    return await fetch("https://api.chucknorris.io/jokes/categories")
+    return await fetch(`${API_BASE_URL}/categories`)
       .then((response) => response.json())
       .then(
         (data) => dispatch(asyncFetchCategoriesSuccess(data)),
@@ -68,7 +68,7 @@ export const asyncFetchJokes = () => {
   return async (dispatch) => {
     dispatch(asyncFetchJokesRequest());
 
-    return await fetch("https://api.chucknorris.io/jokes/search?query=hello")
+    return await fetch(`${API_BASE_URL}/search?query=all`)
       .then((response) => response.json())
       .then(
         (data) => dispatch(asyncFetchJokesSuccess(data.result)),
@@ -77,5 +77,15 @@ export const asyncFetchJokes = () => {
           dispatch(asyncFetchJokesError(err));
         }
       );
+  };
+};
+
+/**
+ * Select Category
+ */
+export const selectCategory = (name) => {
+  return {
+    type: Types.SELECT_CATEGORY,
+    selectedCategory: name,
   };
 };

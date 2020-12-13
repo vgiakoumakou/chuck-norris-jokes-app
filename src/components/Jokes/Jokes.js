@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import Loader from "../SharedUIElements/Loader";
 
 import thunderIcon from "../../assets/icons/thunder-icon.svg";
@@ -7,10 +7,11 @@ import arrowIcon from "../../assets/icons/arrow-right-beige-icon.svg";
 import "./Jokes.scss";
 
 function Jokes(props) {
-  // Destructuring props
+  // Destruct props
   const { jokes, isLoading, onFetchJokes } = props;
 
   useEffect(() => {
+    // Fetch jokes from the API
     onFetchJokes();
   }, []);
 
@@ -29,7 +30,7 @@ function Jokes(props) {
               src={thunderIcon}
               alt="Thunder"
             />
-            {joke.categories[0] || "Uncategorized"}
+            {joke.category}
           </h6>
           <p className="Jokes__JokeCardValue">{joke.value}</p>
         </div>

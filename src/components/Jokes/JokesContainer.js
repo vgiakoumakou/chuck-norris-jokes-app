@@ -3,11 +3,12 @@ import { connect } from "react-redux";
 import Jokes from "./Jokes";
 
 import { asyncFetchJokes } from "../../state/actions";
+import { getFilteredJokesSelector } from "../../state/selectors";
 
 const mapStateToProps = (state) => {
   return {
-    jokes: state.jokes,
-    isLoading: state.isLoading,
+    jokes: getFilteredJokesSelector(state),
+    isLoading: state.isLoadingJokes,
   };
 };
 

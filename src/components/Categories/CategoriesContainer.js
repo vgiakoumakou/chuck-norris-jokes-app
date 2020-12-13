@@ -2,17 +2,19 @@ import { connect } from "react-redux";
 
 import Categories from "./Categories";
 
-import { asyncFetchCategories } from "../../state/actions";
+import { asyncFetchCategories, selectCategory } from "../../state/actions";
 
 const mapStateToProps = (state) => {
   return {
     categories: state.categories,
-    isLoading: state.isLoading,
+    isLoading: state.isLoadingCategories,
+    isLoadingJokes: state.isLoadingJokes,
   };
 };
 
 const mapDispatchToProps = (dispatch) => ({
   onFetchCategories: () => dispatch(asyncFetchCategories()),
+  onSelectCategory: (name) => dispatch(selectCategory(name)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Categories);
