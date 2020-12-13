@@ -68,7 +68,7 @@ export const asyncFetchJokes = () => {
   return async (dispatch) => {
     dispatch(asyncFetchJokesRequest());
 
-    return await fetch(`${API_BASE_URL}/search?query=all`)
+    return await fetch(`${API_BASE_URL}/search?query=changed`)
       .then((response) => response.json())
       .then(
         (data) => dispatch(asyncFetchJokesSuccess(data.result)),

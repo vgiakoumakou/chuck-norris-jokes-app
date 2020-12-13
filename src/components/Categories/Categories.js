@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 
+import ViewMoreButton from "../SharedUIElements/ViewMoreButton/ViewMoreButton";
+
 import "./Categories.scss";
 
 function Categories(props) {
@@ -48,12 +50,11 @@ function Categories(props) {
     <div className="Categories">
       {displayedCategories.map((cat) => renderCategory(cat))}
       {!isViewAllSelected && (
-        <div
-          className="Categories__Category Categories__ViewAll"
+        <ViewMoreButton
+          text="All"
+          className="Categories__Category"
           onClick={() => setIsViewAllSelected(true)}
-        >
-          View All
-        </div>
+        />
       )}
     </div>
   );

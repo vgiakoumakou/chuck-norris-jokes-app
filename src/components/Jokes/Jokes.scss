@@ -2,10 +2,15 @@
 
 .Jokes {
   display: flex;
+  flex-direction: column;
+  max-width: 1140px;
+}
+
+.Jokes__List {
+  display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
   width: 100%;
-  max-width: 1140px;
 }
 
 .Jokes__JokeCard {
@@ -58,6 +63,17 @@
 
 .Jokes__JokeCardLink__Text {
   padding-right: 8px;
+}
+
+.Jokes__ViewButtonContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Jokes__ViewButton {
+  min-width: 206px;
+  box-sizing: border-box;
 }
 
 @media only screen and (max-width: 768px) {

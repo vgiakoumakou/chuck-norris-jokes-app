@@ -42,15 +42,6 @@ $colors-length: length($category-colors);
     }
   }
 
-  &.Categories__ViewAll {
-    background-color: transparent;
-    background: url("../../assets/icons/down-arrow-beige-icon.svg") no-repeat;
-    background-position: right 16px center;
-    background-size: 11px 16px;
-    color: $beige;
-    border: 1px solid #d1bb91;
-  }
-
   &:hover {
     opacity: 0.8;
   }
