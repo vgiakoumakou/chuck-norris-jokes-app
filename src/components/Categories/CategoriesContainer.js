@@ -2,7 +2,11 @@ import { connect } from "react-redux";
 
 import Categories from "./Categories";
 
-import { asyncFetchCategories, selectCategory } from "../../state/actions";
+import {
+  asyncFetchCategories,
+  selectCategory,
+  deselectCategory,
+} from "../../state/actions";
 
 const mapStateToProps = (state) => {
   return {
@@ -16,6 +20,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => ({
   onFetchCategories: () => dispatch(asyncFetchCategories()),
   onSelectCategory: (name) => dispatch(selectCategory(name)),
+  onDeselectCategory: () => dispatch(deselectCategory()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Categories);

@@ -12,6 +12,7 @@ function Categories(props) {
     isLoadingJokes,
     onFetchCategories,
     onSelectCategory,
+    onDeselectCategory,
     selectedCategory,
   } = props;
   // Initialize state
@@ -34,14 +35,19 @@ function Categories(props) {
 
   // Returns a category element
   const renderCategory = (name) => {
-    const selectedClass = name === selectedCategory ? "Selected" : "";
+    const isSelected = name === selectedCategory;
+    const selectedClass = isSelected ? "Selected" : "";
 
     return (
       <div
         key={name}
         className={`Categories__Category ${selectedClass}`}
         onClick={() => {
-          onSelectCategory(name);
+          if (isSelected) {
+            onDeselectCategory();
+          } else {
+            onSelectCategory(name);
+          }
         }}
       >
         {name}
