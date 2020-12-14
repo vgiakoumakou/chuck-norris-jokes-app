@@ -21,6 +21,14 @@ function Jokes(props) {
 
   useEffect(() => {
     setDisplayedJokes(jokes.slice(0, 6));
+
+    // If there is only one joke, go to the single joke page
+    if (jokes.length === 1) {
+      // Update the selected joke in the store
+      onSelectJoke(jokes[0].index);
+      // Redirect to the joke's page
+      history.push(`/${jokes[0].id}`);
+    }
   }, [jokes]);
 
   useEffect(() => {
@@ -40,14 +48,6 @@ function Jokes(props) {
     return (
       <div className="Joke__NoJokesMsg">We couldn't find any jokes...</div>
     );
-  }
-
-  // If there is only one joke, go to the single joke page
-  if (jokes.length === 1) {
-    // Update the selected joke in the store
-    onSelectJoke(0);
-    // Redirect to the joke's page
-    history.push(`/${jokes[0].id}`);
   }
 
   // Add more displayed jokes when the View More button is clicked

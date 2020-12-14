@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 import useIsSmallScreen from "../../hooks/useIsSmallScreen";
+import useComponentNotFocusedOut from "../../hooks/useComponentNotFocusedOut";
 
 import logo from "../../assets/logos/vehiculum-logo.svg";
 import mobileMenuIcon from "../../assets/icons/mobile-menu-icon.svg";
@@ -11,6 +12,12 @@ function NavBar() {
   // Initialize state
   const [isSubMenuOpen, setIsSubMenuOpen] = useState(false);
   const isSmallScreen = useIsSmallScreen();
+  // Call the hook that detects clicks outside of an element
+  const {
+    ref,
+    isComponentNotFocusedOut,
+    setIsComponentNotFocusedOut,
+  } = useComponentNotFocusedOut(true);
 
   useEffect(() => {
     // Close submenu on small screens
@@ -19,15 +26,27 @@ function NavBar() {
     }
   }, [isSmallScreen]);
 
+  useEffect(() => {
+    if (!isComponentNotFocusedOut) {
+      // Update state when submenu focus is lost
+      setIsSubMenuOpen(false);
+    }
+  }, [isComponentNotFocusedOut]);
+
   // Toggles the submenu's visibility
   const toggleSubMenu = () => {
-    setIsSubMenuOpen(!isSubMenuOpen);
+    const newIsMenuOpen = !isSubMenuOpen;
+    setIsSubMenuOpen(newIsMenuOpen);
+    if (newIsMenuOpen) {
+      // When the submenu is set to open, reset focus to true
+      setIsComponentNotFocusedOut(true);
+    }
   };
 
   // Returns the submenu
   const renderSubMenu = () => {
     return (
-      <div className="NavBar__SubLinks">
+      <div className="NavBar__SubLinks" ref={ref}>
         <a href="#" className="NavBar__SubLink">
           My published jokes
         </a>
@@ -60,15 +79,16 @@ function NavBar() {
                 SONDERANGEBOTE
               </a>
             </div>
-            <div className="NavBar__NavItem NavBar__NavItem--HasSubMenu">
-              <a
-                href="#"
-                className="NavBar__Link NavBar__Link--with-icons"
-                onClick={() => toggleSubMenu()}
-              >
+            <div
+              className="NavBar__NavItem NavBar__NavItem--HasSubMenu"
+              onClick={(e) => {
+                toggleSubMenu();
+              }}
+            >
+              <a href="#" className="NavBar__Link NavBar__Link--with-icons">
                 MEIN BEREICH
               </a>
-              {isSubMenuOpen && renderSubMenu()}
+              {isSubMenuOpen && isComponentNotFocusedOut && renderSubMenu()}
             </div>
           </nav>
         )}
