@@ -23,6 +23,11 @@ export const SELECT_CATEGORY = "SELECT_CATEGORY";
 export const DESELECT_CATEGORY = "DESELECT_CATEGORY";
 
 /**
+ * Change the search term
+ */
+export const CHANGE_SEARCH_TERM = "CHANGE_SEARCH_TERM";
+
+/**
  * Select Joke
  */
 export const SELECT_JOKE = "SELECT_JOKE";

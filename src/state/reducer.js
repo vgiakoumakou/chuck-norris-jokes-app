@@ -15,6 +15,8 @@ const initialState = {
   selectedCategory: "",
   // The id of the selected joke
   selectedJokeIndex: null,
+  // The search term to filter jokes
+  searchTerm: "",
 };
 
 function rootReducer(state = initialState, action) {
@@ -62,6 +64,11 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
         selectedCategory: "",
+      };
+    case Types.CHANGE_SEARCH_TERM:
+      return {
+        ...state,
+        searchTerm: action.searchTerm,
       };
     case Types.SELECT_JOKE:
       return {

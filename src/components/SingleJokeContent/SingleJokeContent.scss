@@ -3,10 +3,10 @@
 .SingleJokeContent {
   display: flex;
   flex-direction: column;
-  min-height: 400px;
   max-width: 1140px;
   align-self: center;
   padding-top: 45px;
+  padding-bottom: 70px;
 }
 
 .SingleJokeContent__BackBtn {
@@ -68,7 +68,7 @@
     font-weight: 600;
 
     &.SingleJokeContent__Label--chestnut {
-      color: $dark-text-color;
+      color: #000;
     }
     &.SingleJokeContent__Label--new-in-town {
       color: $dodger-blue;
@@ -93,11 +93,11 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  margin-top: 40px;
 }
 
 .SingleJokeContent__ReactionBtns {
   display: flex;
-  margin-top: 40px;
 }
 
 .SingleJokeContent__ReactionBtn--Container {
@@ -153,7 +153,6 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin-top: 40px;
 }
 
 .SingleJokeContent__NavBtn {
@@ -170,12 +169,17 @@
   border: 1px solid $white-two;
   border-radius: 2px;
   cursor: pointer;
+  transition: all 0.5s;
 
   &.SingleJokeContent__PrevBtn {
     background: url("../../assets//icons/prev-arrow-icon.svg") no-repeat;
     background-position: left 15px center;
     background-size: 8px 15px;
     padding-left: 33px;
+
+    &:hover {
+      background-position: left 4px center;
+    }
   }
 
   &.SingleJokeContent__NextBtn {
@@ -184,6 +188,10 @@
     background-size: 8px 15px;
     padding-right: 33px;
     margin-left: 8px;
+
+    &:hover {
+      background-position: right 4px center;
+    }
   }
 }
 
@@ -191,10 +199,12 @@
   display: flex;
   flex-direction: column;
   padding: 32px;
+  box-sizing: border-box;
   border: 1px solid $white-two;
   border-radius: 4px;
   background-color: $white;
   width: 350px;
+  min-height: 300px;
 
   .SingleJokeContent__ChartTitle {
     font-size: 15px;
@@ -207,9 +217,58 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
-    max-width: 95%;
+    max-width: 80%;
     padding-bottom: 8px;
     text-decoration: underline;
     cursor: pointer;
+    font-size: 15px;
+    color: $dark-text-color;
+    line-height: 22px;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .SingleJokeContent {
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+    .SingleJokeContent__Main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .SingleJokeContent__BackBtn {
+      margin-bottom: 20px;
+    }
+
+    .SingleJokeContent__JokeActions {
+      margin-top: 15px;
+      width: 100%;
+    }
+
+    .SingleJokeContent__Chart {
+      width: 500px;
+      margin-top: 25px;
+    }
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .SingleJokeContent {
+    width: 90%;
+
+    .SingleJokeContent__JokeSection {
+      align-items: center;
+      margin-right: 0;
+    }
+
+    .SingleJokeContent__JokeCard {
+      width: 95%;
+    }
+
+    .SingleJokeContent__Chart {
+      width: 80%;
+    }
   }
 }

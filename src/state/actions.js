@@ -100,6 +100,16 @@ export const deselectCategory = () => {
 };
 
 /**
+ * Change the search term
+ */
+export const changeSearchTerm = (searchTerm) => {
+  return {
+    type: Types.CHANGE_SEARCH_TERM,
+    searchTerm,
+  };
+};
+
+/**
  * Select a specific joke to open
  */
 export const selectJoke = (index) => {
@@ -128,4 +138,3 @@ export const addDislike = (index) => {
     index,
   };
 };
-

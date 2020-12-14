@@ -3,24 +3,22 @@
  * such as the selected joke category.
  */
 export const getFilteredJokesSelector = (state) => {
+  let newJokes = state.jokes;
+  // Filter jokes by the selected category
   if (state.selectedCategory.length > 0) {
-    // Group jokes by category
-    const groupedJokes = state.jokes.reduce((acc, curr) => {
-      //If this category wasn't previously stored
-      if (!acc[curr.category]) {
-        acc[curr.category] = [];
-      }
-      acc[curr.category].push(curr);
-      return acc;
-    }, []);
-
-    // Return the group of jokes that belong to the selected category
-    return groupedJokes[state.selectedCategory]
-      ? groupedJokes[state.selectedCategory]
-      : [];
+    newJokes = newJokes.filter(
+      (joke) => joke.category === state.selectedCategory
+    );
   }
 
-  return state.jokes;
+  // Filter jokes by the search term
+  if (state.searchTerm.length > 0) {
+    newJokes = newJokes.filter(
+      (joke) => joke.value.search(new RegExp(state.searchTerm, "i")) > 0
+    );
+  }
+
+  return newJokes;
 };
 
 /**
@@ -43,10 +41,8 @@ export const getTotalJokes = (state) => {
 export const getTopJokes = (state) => {
   let newJokes = state.jokes;
 
-  // Filter out jokes with more dislikes and with no likes
-  newJokes = newJokes.filter(
-    (joke) => joke.likes > joke.dislikes && joke.likes > 0
-  );
+  // Filter out jokes with more dislikes
+  newJokes = newJokes.filter((joke) => joke.likes >= joke.dislikes);
 
   // Sort by likes
   newJokes = newJokes.sort(function (a, b) {
