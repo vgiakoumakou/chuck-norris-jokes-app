@@ -29,13 +29,6 @@ export const getSelectedJokeSelector = (state) => {
 };
 
 /**
- * Returns the total number of jokes
- */
-export const getTotalJokes = (state) => {
-  return state.jokes.length;
-};
-
-/**
  * Returns the top jokes
  */
 export const getTopJokes = (state) => {
@@ -50,4 +43,15 @@ export const getTopJokes = (state) => {
   });
 
   return newJokes.slice(0, 10);
+};
+
+/**
+ * Returns an array with the indexes only of the
+ * filtered jokes
+ */
+export const getFilteredJokesIndexes = (state) => {
+  const filteredJokes = getFilteredJokesSelector(state);
+  const filteredJokesIndexes = filteredJokes.map((joke) => joke.index);
+
+  return filteredJokesIndexes;
 };

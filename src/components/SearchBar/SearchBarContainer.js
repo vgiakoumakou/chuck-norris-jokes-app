@@ -8,6 +8,7 @@ import { getFilteredJokesSelector } from "../../state/selectors";
 const mapStateToProps = (state) => {
   return {
     jokes: getFilteredJokesSelector(state),
+    searchTerm: state.searchTerm,
   };
 };
 

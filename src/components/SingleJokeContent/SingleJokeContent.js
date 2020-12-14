@@ -14,8 +14,10 @@ function SingleJokeContent(props) {
     onAddLike,
     onAddDislike,
     onSelectJoke,
-    totalJokes,
     topJokes,
+    filteredJokesIndexes,
+    onDeselectCategory,
+    onDeselectSearchTerm,
   } = props;
 
   const renderBackButton = () => {
@@ -23,6 +25,10 @@ function SingleJokeContent(props) {
       <div
         className="SingleJokeContent__BackBtn"
         onClick={() => {
+          if (filteredJokesIndexes.length === 1) {
+            onDeselectCategory();
+            onDeselectSearchTerm();
+          }
           history.push("/");
         }}
       >
@@ -84,25 +90,31 @@ function SingleJokeContent(props) {
   };
 
   const renderNavButtons = () => {
-    const isFirstJoke = joke.index === 0;
-    const isLastJoke = joke.index === totalJokes - 1;
+    // Get the index of the current joke in the filtered jokes
+    const jokeIndex = filteredJokesIndexes.indexOf(joke.index);
+    const isFirstJoke = jokeIndex === 0;
+    const isLastJoke = jokeIndex === filteredJokesIndexes.length - 1;
+    const isTheOnlyJoke = filteredJokesIndexes.length === 0;
+    // Get whether the nav buttons can be displayed or not
+    const showPrevBtn = !isFirstJoke && !isTheOnlyJoke;
+    const showNextBtn = !isLastJoke && !isTheOnlyJoke;
 
     return (
       <div className="SingleJokeContent__JokeNav">
-        {!isFirstJoke && (
+        {showPrevBtn && (
           <div
             className="SingleJokeContent__NavBtn SingleJokeContent__PrevBtn"
             onClick={() => {
-              onSelectJoke(joke.index - 1);
+              onSelectJoke(filteredJokesIndexes[jokeIndex - 1]);
             }}
           >
             PREV. JOKE
           </div>
         )}
-        {!isLastJoke && (
+        {showNextBtn && (
           <div
             className="SingleJokeContent__NavBtn SingleJokeContent__NextBtn"
-            onClick={() => onSelectJoke(joke.index + 1)}
+            onClick={() => onSelectJoke(filteredJokesIndexes[jokeIndex + 1])}
           >
             NEXT JOKE
           </div>
@@ -119,6 +131,7 @@ function SingleJokeContent(props) {
         </h6>
         {topJokes.map((jk) => (
           <div
+            key={jk.index}
             className="SingleJokeContent__ChartJoke"
             onClick={() => onSelectJoke(jk.index)}
           >

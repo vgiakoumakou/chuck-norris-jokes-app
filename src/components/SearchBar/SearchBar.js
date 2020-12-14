@@ -7,9 +7,15 @@ import "./SearchBar.scss";
 
 function SearchBar(props) {
   // Destruct props
-  const { onChangeTerm, location, history, onSelectJoke, jokes } = props;
+  const {
+    onChangeTerm,
+    location,
+    history,
+    onSelectJoke,
+    jokes,
+    searchTerm,
+  } = props;
   // Initialize state
-  const [searchTerm, setSearchTerm] = useState("");
   const [showSuggestions, setShowSuggestions] = useState(false);
   // Call the hook that detects clicks outside of a component
   const {
@@ -36,6 +42,7 @@ function SearchBar(props) {
         <div className="SearchBar__SuggestionsInner">
           {jokes.map((joke) => (
             <div
+              key={joke.index}
               className="SearchBar__Suggestion"
               onClick={() => {
                 // Update the selected joke in the store
@@ -60,8 +67,8 @@ function SearchBar(props) {
         <input
           className="SearchBar__Input"
           placeholder="How can we make you laugh today?"
+          value={searchTerm}
           onChange={(e) => {
-            setSearchTerm(e.target.value);
             // Update the search term in the store
             onChangeTerm(e.target.value);
             // Show search suggestions if we are not in the home page
