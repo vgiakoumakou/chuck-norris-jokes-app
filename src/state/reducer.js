@@ -14,7 +14,7 @@ const initialState = {
   // The selected joke category
   selectedCategory: "",
   // The id of the selected joke
-  selectedJokeId: null,
+  selectedJokeIndex: null,
 };
 
 function rootReducer(state = initialState, action) {
@@ -66,8 +66,35 @@ function rootReducer(state = initialState, action) {
     case Types.SELECT_JOKE:
       return {
         ...state,
-        selectedJokeId: action.id,
+        selectedJokeIndex: action.index,
       };
+    case Types.ADD_LIKE: {
+      // Update the likes of the joke
+      let newJokes = [...state.jokes];
+      newJokes[action.index] = {
+        ...newJokes[action.index],
+        likes: newJokes[action.index].likes + 1,
+      };
+
+      return {
+        ...state,
+        jokes: newJokes,
+      };
+    }
+    case Types.ADD_DISLIKE: {
+      // Update the dislikes of the joke
+      let newJokes = [...state.jokes];
+      newJokes[action.index] = {
+        ...newJokes[action.index],
+        dislikes: newJokes[action.index].dislikes + 1,
+      };
+
+      return {
+        ...state,
+        jokes: newJokes,
+      };
+    }
+
     default:
       return state;
   }

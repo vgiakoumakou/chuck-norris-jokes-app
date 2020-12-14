@@ -1,3 +1,3 @@
-import SingleJokeContent from "./SingleJokeContent";
+import SingleJokeContentContainer from "./SingleJokeContentContainer";
 
-export default SingleJokeContent;
+export default SingleJokeContentContainer;

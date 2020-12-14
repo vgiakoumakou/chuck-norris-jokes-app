@@ -102,9 +102,30 @@ export const deselectCategory = () => {
 /**
  * Select a specific joke to open
  */
-export const selectJoke = (id) => {
+export const selectJoke = (index) => {
   return {
     type: Types.SELECT_JOKE,
-    id
+    index,
   };
 };
+
+/**
+ * Add a like to a joke
+ */
+export const addLike = (index) => {
+  return {
+    type: Types.ADD_LIKE,
+    index,
+  };
+};
+
+/**
+ * Add a dislike to a joke
+ */
+export const addDislike = (index) => {
+  return {
+    type: Types.ADD_DISLIKE,
+    index,
+  };
+};
+
