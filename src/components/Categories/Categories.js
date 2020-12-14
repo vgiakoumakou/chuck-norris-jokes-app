@@ -12,6 +12,7 @@ function Categories(props) {
     isLoadingJokes,
     onFetchCategories,
     onSelectCategory,
+    selectedCategory,
   } = props;
   // Initialize state
   const [isViewAllSelected, setIsViewAllSelected] = useState(false);
@@ -33,10 +34,12 @@ function Categories(props) {
 
   // Returns a category element
   const renderCategory = (name) => {
+    const selectedClass = name === selectedCategory ? "Selected" : "";
+
     return (
       <div
         key={name}
-        className="Categories__Category"
+        className={`Categories__Category ${selectedClass}`}
         onClick={() => {
           onSelectCategory(name);
         }}
@@ -49,6 +52,7 @@ function Categories(props) {
   return (
     <div className="Categories">
       {displayedCategories.map((cat) => renderCategory(cat))}
+      {isViewAllSelected && renderCategory("uncategorized")}
       {!isViewAllSelected && (
         <ViewMoreButton
           text="All"

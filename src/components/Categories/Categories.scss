@@ -47,6 +47,12 @@ $colors-length: length($category-colors);
   &:hover {
     opacity: 0.8;
   }
+
+  &.Selected {
+    color: $light-text-color;
+    border: 1px inset $light-text-color;
+    max-width: 178px;
+  }
 }
 
 @media only screen and (max-width: 1200px) {
@@ -66,7 +72,7 @@ $colors-length: length($category-colors);
 @media only screen and (max-width: 600px) {
   .Categories {
     .Categories__Category {
-      flex-basis: calc(35%);
+      flex-basis: 35%;
       margin-right: 10px;
     }
   }

@@ -8,6 +8,14 @@
   width: 100%;
 }
 
+.Joke__NoJokesMsg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 50px;
+  width: 100%;
+}
+
 .Jokes__List {
   display: flex;
   flex-wrap: wrap;

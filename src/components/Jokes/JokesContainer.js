@@ -9,12 +9,13 @@ const mapStateToProps = (state) => {
   return {
     jokes: getFilteredJokesSelector(state),
     isLoading: state.isLoadingJokes,
+    selectedJokeIndex: state.selectedJokeIndex,
   };
 };
 
 const mapDispatchToProps = (dispatch) => ({
   onFetchJokes: () => dispatch(asyncFetchJokes()),
-  onSelectJoke: (id) => dispatch(selectJoke(id)),
+  onSelectJoke: (index) => dispatch(selectJoke(index)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Jokes);

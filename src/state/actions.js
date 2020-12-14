@@ -64,11 +64,11 @@ export const asyncFetchJokesError = (error) => {
   };
 };
 
-export const asyncFetchJokes = (term = "all") => {
+export const asyncFetchJokes = () => {
   return async (dispatch) => {
     dispatch(asyncFetchJokesRequest());
 
-    return await fetch(`${API_BASE_URL}/search?query=${term}`)
+    return await fetch(`${API_BASE_URL}/search?query=chuck`)
       .then((response) => response.json())
       .then(
         (data) => dispatch(asyncFetchJokesSuccess(data.result)),

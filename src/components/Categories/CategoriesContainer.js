@@ -9,6 +9,7 @@ const mapStateToProps = (state) => {
     categories: state.categories,
     isLoading: state.isLoadingCategories,
     isLoadingJokes: state.isLoadingJokes,
+    selectedCategory: state.selectedCategory,
   };
 };
 
