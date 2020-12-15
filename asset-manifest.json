@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/chuck-norris-jokes-app/static/css/main.29ac1e06.chunk.css",
-    "main.js": "/chuck-norris-jokes-app/static/js/main.0ee55612.chunk.js",
-    "main.js.map": "/chuck-norris-jokes-app/static/js/main.0ee55612.chunk.js.map",
+    "main.js": "/chuck-norris-jokes-app/static/js/main.50426ee7.chunk.js",
+    "main.js.map": "/chuck-norris-jokes-app/static/js/main.50426ee7.chunk.js.map",
     "runtime-main.js": "/chuck-norris-jokes-app/static/js/runtime-main.b9f697ea.js",
     "runtime-main.js.map": "/chuck-norris-jokes-app/static/js/runtime-main.b9f697ea.js.map",
-    "static/js/2.b281d905.chunk.js": "/chuck-norris-jokes-app/static/js/2.b281d905.chunk.js",
-    "static/js/2.b281d905.chunk.js.map": "/chuck-norris-jokes-app/static/js/2.b281d905.chunk.js.map",
+    "static/js/2.b5241f75.chunk.js": "/chuck-norris-jokes-app/static/js/2.b5241f75.chunk.js",
+    "static/js/2.b5241f75.chunk.js.map": "/chuck-norris-jokes-app/static/js/2.b5241f75.chunk.js.map",
     "index.html": "/chuck-norris-jokes-app/index.html",
     "static/css/main.29ac1e06.chunk.css.map": "/chuck-norris-jokes-app/static/css/main.29ac1e06.chunk.css.map",
-    "static/js/2.b281d905.chunk.js.LICENSE.txt": "/chuck-norris-jokes-app/static/js/2.b281d905.chunk.js.LICENSE.txt",
+    "static/js/2.b5241f75.chunk.js.LICENSE.txt": "/chuck-norris-jokes-app/static/js/2.b5241f75.chunk.js.LICENSE.txt",
     "static/media/arrow-left.6a4a2c2d.svg": "/chuck-norris-jokes-app/static/media/arrow-left.6a4a2c2d.svg",
     "static/media/arrow-right-beige-icon.ed622f8d.svg": "/chuck-norris-jokes-app/static/media/arrow-right-beige-icon.ed622f8d.svg",
     "static/media/SingleJokeContent.scss": "/chuck-norris-jokes-app/static/media/prev-arrow-icon.fd0fcd12.svg",
@@ -22,8 +22,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.b9f697ea.js",
-    "static/js/2.b281d905.chunk.js",
+    "static/js/2.b5241f75.chunk.js",
     "static/css/main.29ac1e06.chunk.css",
-    "static/js/main.0ee55612.chunk.js"
+    "static/js/main.50426ee7.chunk.js"
   ]
 }
