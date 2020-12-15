@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/chuck-norris-jokes-app/static/css/main.a09dee46.chunk.css",
-    "main.js": "/chuck-norris-jokes-app/static/js/main.50426ee7.chunk.js",
-    "main.js.map": "/chuck-norris-jokes-app/static/js/main.50426ee7.chunk.js.map",
+    "main.css": "/chuck-norris-jokes-app/static/css/main.b025efaa.chunk.css",
+    "main.js": "/chuck-norris-jokes-app/static/js/main.a77c2a84.chunk.js",
+    "main.js.map": "/chuck-norris-jokes-app/static/js/main.a77c2a84.chunk.js.map",
     "runtime-main.js": "/chuck-norris-jokes-app/static/js/runtime-main.b9f697ea.js",
     "runtime-main.js.map": "/chuck-norris-jokes-app/static/js/runtime-main.b9f697ea.js.map",
     "static/js/2.b5241f75.chunk.js": "/chuck-norris-jokes-app/static/js/2.b5241f75.chunk.js",
     "static/js/2.b5241f75.chunk.js.map": "/chuck-norris-jokes-app/static/js/2.b5241f75.chunk.js.map",
     "index.html": "/chuck-norris-jokes-app/index.html",
-    "static/css/main.a09dee46.chunk.css.map": "/chuck-norris-jokes-app/static/css/main.a09dee46.chunk.css.map",
+    "static/css/main.b025efaa.chunk.css.map": "/chuck-norris-jokes-app/static/css/main.b025efaa.chunk.css.map",
     "static/js/2.b5241f75.chunk.js.LICENSE.txt": "/chuck-norris-jokes-app/static/js/2.b5241f75.chunk.js.LICENSE.txt",
     "static/media/arrow-left.6a4a2c2d.svg": "/chuck-norris-jokes-app/static/media/arrow-left.6a4a2c2d.svg",
     "static/media/arrow-right-beige-icon.ed622f8d.svg": "/chuck-norris-jokes-app/static/media/arrow-right-beige-icon.ed622f8d.svg",
@@ -23,7 +23,7 @@
   "entrypoints": [
     "static/js/runtime-main.b9f697ea.js",
     "static/js/2.b5241f75.chunk.js",
-    "static/css/main.a09dee46.chunk.css",
-    "static/js/main.50426ee7.chunk.js"
+    "static/css/main.b025efaa.chunk.css",
+    "static/js/main.a77c2a84.chunk.js"
   ]
 }
